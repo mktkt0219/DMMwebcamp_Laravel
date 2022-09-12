@@ -8,8 +8,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
-
 use App\Http\Controllers\CompletedTaskController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +55,9 @@ Route::prefix('/admin')->group(function () {
     Route::get('/logout', [AdminAuthController::class, 'logout']);
 });
 
-
+//ユーザー登録
+Route::get('/user/register',[UserController::class,'index']);
+Route::post('/user/register',[UserController::class,'register']);
 
 // テスト用
 Route::get('/welcome', [WelcomeController::class, 'index']);
