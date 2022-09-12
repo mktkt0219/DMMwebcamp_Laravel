@@ -1,12 +1,12 @@
 <?php
 
 namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-use Illuminate\Database\Seeder;
-
-class AdminAuthUser extends Seeder
+class FrontAuthUser extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +16,10 @@ class AdminAuthUser extends Seeder
     public function run()
     {
         //
-        DB::table('admin_users')->insert([
-            'login_id' => 'hogemin',
+        DB::table('users')->insert([
+            'name' => 'テストユーザ',
+            'email' => 'hoge@example.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => Hash::make('pass'),
         ]);
     }
